@@ -1,4 +1,8 @@
 body {
+    background-image: url('assets/images/backgroundhd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: Arial, sans-serif;
     background-color: #002626;
     display: flex;
@@ -36,4 +40,18 @@ body {
     #wordDisplay {
         font-size: 1.5rem;
     }
+}
+
+#languageSelector, #difficultySelector {
+    margin-bottom: 20px;
+}
+
+#languageSelector label, #difficultySelector label {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.2);
 }

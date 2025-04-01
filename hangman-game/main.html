@@ -4,37 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="container text-center mt-4">
-        <h1>Hangman Game</h1>
+        <h1 id="gameTitle">Hangman Game</h1>
+
         <div id="languageSelector" class="mb-3">
-            <label for="language" class="form-label">Select Language:</label>
-            <select id="language" class="form-select w-auto d-inline-block">
-                <option value="eng">English</option>
-                <option value="bg">Bulgarian</option>
-            </select>
+            <label class="form-label">Select Language:</label>
+            
+            <label class="me-2">
+                <input type="radio" name="language" value="eng" checked> English
+            </label>
+            
+            <label>
+                <input type="radio" name="language" value="bg"> Български
+            </label>
         </div>
+
+
         <div id="difficultySelector" class="mb-3">
-            <label for="difficulty" class="form-label">Select Difficulty:</label>
-            <select id="difficulty" class="form-select w-auto d-inline-block">
-                <option value="easy">Easy (3 letters)</option>
-                <option value="medium">Medium (4 letters)</option>
-                <option value="high">High (5 letters)</option>
-                <option value="nightmare">Nightmare (6 letters)</option>
-            </select>
-        </div>
-        <div id="gameArea">
-            <img id="hangmanImage" src="assets/images/0.png" alt="Hangman" class="img-fluid mb-3">
-            <div id="wordDisplay" class="mb-3">_ _ _</div>
-            <input type="text" id="guessInput" class="form-control w-auto d-inline-block" placeholder="word or letter">
-            <button id="guessButton" class="btn btn-primary">Guess</button>
-            <div id="attemptsDisplay" class="mt-3">Брой опити: 6
+            <label class="form-label">Select Difficulty:</label>
+
+            <label class="me-2">
+                <input type="radio" name="difficulty" value="easy" checked> Easy (3 letters)
+            </label>
+
+            <label class="me-2">
+                <input type="radio" name="difficulty" value="medium"> Medium (4 letters)
+            </label>
+
+            <label class="me-2">
+                <input type="radio" name="difficulty" value="hard"> Hard (5 letters)
+            </label>
+
+            <label class="me-2">
+                <input type="radio" name="difficulty" value="nightmare"> Nightmare (6 letters)
+            </label>
+
+
+            <div id="customAttemptsContainer" style="display: none; margin-top: 10px;">
+                <label for="customAttempts">Attempts (Max 6):</label>
+                <input type="number" id="customAttempts" min="1" max="6" value="6" class="form-control w-auto d-inline-block">
             </div>
         </div>
+
+        <div id="gameArea">
+            <img id="hangmanImage" src="assets/images/0.png" alt="Hangman" class="img-fluid mb-3">
+
+            <div id="wordDisplay" class="mb-3">_ _ _</div>
+
+            <input type="text" id="guessInput" class="form-control w-auto d-inline-block" placeholder="Enter letter or word">
+            <button id="guessButton" class="btn btn-primary">Guess</button>
+
+            <div id="attemptsDisplay" class="mt-3">Attempts left: 6</div>
+            <div id="wrongLetters" class="mt-3"><strong></strong> <span></span></div>
+        </div>
     </div>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>
